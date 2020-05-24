@@ -1,0 +1,21 @@
+{
+  "name": "webpack4_multi_page",
+  "version": "1.0.0",
+  "description": "a webpack4.x multi page demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webapck4",
+    "multi_page"
+  ],
+  "author": "yixiao",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
