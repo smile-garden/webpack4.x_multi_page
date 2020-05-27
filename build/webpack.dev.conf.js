@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const webpackConfigBase = require('./webpack.base.conf');
+const webpackConfigBase = require('./webpack.base.conf.js');
 const webpackConfigDev = {
   mode: 'development', // 通过 mode 声明开发环境
   output: {
@@ -10,7 +10,7 @@ const webpackConfigDev = {
     // 生成 a.bundle.[hash].js b.bundle.[hash].js
     filename: './js/[name].bundle.js',
   },
-  devServe: {
+  devServer: {
     contentBase: path.join(__dirname, '../src'),
     publicPath: '/',
     host: 'localhost',

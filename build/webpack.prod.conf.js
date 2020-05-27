@@ -7,7 +7,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
-const webpackConfigBase = require('./webpack.base.conf');
+const webpackConfigBase = require('./webpack.base.conf.js');
 const webpackConfigProd = {
   mode: 'production',
   output: {
