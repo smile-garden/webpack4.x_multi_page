@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 // 清除目录等
-const cleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -18,8 +18,7 @@ const webpackConfigProd = {
   devtool: 'cheap-source-map',
   plugins: [
     // 删除dist目录
-    new cleanWebpackPlugin(['dist'], {
-      root: path.resolve(__dirname, '../'), // 根目录
+    new CleanWebpackPlugin({
       verbose: true, // 开启在控制台输出信息
       dry: false,
     }),
@@ -33,7 +32,7 @@ const webpackConfigProd = {
         safe: true,
       },
     }),
-    new UglifyJSPlugin({
+    /* new UglifyJSPlugin({
       uglifyOptions: {
         compress: {
           warnings: false,
@@ -41,7 +40,7 @@ const webpackConfigProd = {
           drop_console: true,
         },
       },
-    }),
+    }), */
     new BundleAnalyzerPlugin(),
   ],
   module: {

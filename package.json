@@ -23,7 +23,7 @@
     "copy-webpack-plugin": "^6.0.1",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "glob": "^7.1.6",
     "html-webpack-plugin": "^4.3.0",
     "html-withimg-loader": "^0.1.16",
@@ -46,5 +46,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
-  }
+  },
+  "dependencies": {}
 }

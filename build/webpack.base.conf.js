@@ -13,7 +13,7 @@ const rules = require('./webpack.rules.conf.js');
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name, chunks) {
   return {
-    template: `./scr/pages/${name}/index.html`,
+    template: `./src/pages/${name}/index.html`,
     filename: `${name}.html`,
     inject: true,
     hash: true,
