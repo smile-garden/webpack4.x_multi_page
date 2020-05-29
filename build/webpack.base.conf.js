@@ -36,6 +36,7 @@ module.exports = {
     rules: [...rules],
   },
   // 将外部变量或者模块加载进来
+  //externals就是webpack可以不处理应用的某些依赖库，使用externals配置后，依旧可以在代码中通过CMD、AMD或者window/global全局的方式访问。
   externals: {
     // 'jquery': 'window.jQuery'
   },

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 // 清除目录等
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
@@ -32,7 +32,7 @@ const webpackConfigProd = {
         safe: true,
       },
     }),
-    /* new UglifyJSPlugin({
+    /* new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
           warnings: false,
@@ -43,6 +43,11 @@ const webpackConfigProd = {
     }), */
     new BundleAnalyzerPlugin(),
   ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin({
+      // extractComments: true,
+    })],
+  },
   module: {
     rules: [],
   },

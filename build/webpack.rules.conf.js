@@ -41,7 +41,7 @@ const rules = [
   },
   {
     test: /\.less$/,
-    use: process.env.NODE_ENV === 'development' ? ['style-loader', 'css-loader', 'less-loader']: extractTextPlugin.extract({
+    use: process.env.NODE_ENV === 'development' ? ['style-loader', 'css-loader', 'less-loader'] : extractTextPlugin.extract({
       fallback: 'style-loader',
       use: ['css-loader', 'less-loader'],
       // css中的基础路径
