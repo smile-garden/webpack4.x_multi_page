@@ -34,6 +34,11 @@ const rules = [
       }
     }],
   },
+  // ejs模版
+  {
+    test: /\.ejs$/,
+    loader: 'ejs-html-loader',			     
+  },
   {
     test: /\.html$/,
     // html中的img标签

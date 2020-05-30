@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const glob = require('glob');
+const pages = require('../src/config/page');
 
 // 分离css  消除冗余的css
 const purifyCssWebpack = require('purifycss-webpack');
@@ -9,29 +10,11 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 // 静态资源输出
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const rules = require('./webpack.rules.conf.js');
-
-// 获取html-webpack-plugin参数的方法
-var getHtmlConfig = function (name, chunks) {
-  return {
-    template: `./src/pages/${name}/index.html`,
-    filename: `${name}.html`,
-    inject: true,
-    hash: true,
-    chunks: chunks,
-    minify: process.env.NODE_ENV === 'development' ? false : {
-      removeComments: true, // 移除HMTL中的注释
-      collapseWhitespace: true, // 折叠空白区域 即压缩代码
-      removeAttributeQuotes: true, // 去除属性引用
-    },
-  };
-};
+const util = require('./utils.js');
 
 module.exports = {
-  entry: {
-    // 多入口文件
-    index: './src/pages/index/index.js',
-    login: './src/pages/login/index.js',
-  },
+  // 多入口文件
+  entry: util.generateEntryConfig(pages),
   module: {
     rules: [...rules],
   },
@@ -62,21 +45,7 @@ module.exports = {
   ],
 };
 
-// 配置页面
-const htmlArray = [
-  {
-    name: 'index',
-    title: '首页',
-    chunks: ['index'],
-  },
-  {
-    name: 'login',
-    title: '登录',
-    chunks: ['login'],
-  },
-];
-
 // 自动生成html模板
-htmlArray.forEach((element) => {
-  module.exports.plugins.push(new htmlWebpackPlugin(getHtmlConfig(element.name, element.chunks)));
+pages.forEach((item) => {
+  module.exports.plugins.push(new htmlWebpackPlugin(util.generateHtmlConfig(item)));
 });

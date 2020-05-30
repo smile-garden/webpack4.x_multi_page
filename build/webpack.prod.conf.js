@@ -32,20 +32,18 @@ const webpackConfigProd = {
         safe: true,
       },
     }),
-    /* new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false,
-          drop_debugger: false,
-          drop_console: true,
-        },
-      },
-    }), */
+    // 打包文件分析工具
     new BundleAnalyzerPlugin(),
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin({
-      // extractComments: true,
+      uglifyOptions: {
+        compress: {
+          // warnings: false,
+          drop_console: true, //console
+          pure_funcs: ['console.log'] //移除console
+        }
+      },
     })],
   },
   module: {
